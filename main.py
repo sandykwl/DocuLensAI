@@ -6,7 +6,7 @@ from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from masumi.config import Config
 from masumi.payment import Payment, Amount
-from crew_definition import ResearchCrew
+from crew_definition import DocLensCrew
 from logging_config import setup_logging
 
 # Configure logging
@@ -68,14 +68,14 @@ class ProvideInputRequest(BaseModel):
 # ─────────────────────────────────────────────────────────────────────────────
 # CrewAI Task Execution
 # ─────────────────────────────────────────────────────────────────────────────
-async def execute_crew_task(input_data: str) -> str:
-    """ Execute a CrewAI task with Research and Writing Agents """
+async def execute_crew_task(input_data: dict) -> str:
+    """ Execute a CrewAI task with Reader → Analyzer Agents """
     logger.info(f"Starting CrewAI task with input: {input_data}")
-    crew = ResearchCrew(logger=logger)
-    inputs = {"text": input_data}
-    result = crew.crew.kickoff(inputs)
+    crew = DocLensCrew(logger=logger)
+    result = crew.crew.kickoff(inputs=input_data)
     logger.info("CrewAI task completed successfully")
     return result
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1) Start Job (MIP-003: /start_job)
@@ -90,9 +90,10 @@ async def start_job(data: StartJobRequest):
         agent_identifier = os.getenv("AGENT_IDENTIFIER")
         
         # Log the input text (truncate if too long)
-        input_text = data.input_data["text"]
-        truncated_input = input_text[:100] + "..." if len(input_text) > 100 else input_text
-        logger.info(f"Received job request with input: '{truncated_input}'")
+        source_url = data.input_data.get("source_url")
+        domain_keywords = data.input_data.get("domain_keywords")
+        logger.info(f"Received job request for URL: {source_url}")
+        logger.info(f"Domain keywords: {domain_keywords}")
         logger.info(f"Starting job {job_id} with agent {agent_identifier}")
 
         # Define payment amounts
@@ -272,12 +273,21 @@ async def input_schema():
     return {
         "input_data": [
             {
-                "id": "text",
+                "id": "source_url",
                 "type": "string",
-                "name": "Task Description",
+                "name": "Source URL",
                 "data": {
-                    "description": "The text input for the AI task",
-                    "placeholder": "Enter your task description here"
+                    "description": "The document or proposal URL to fetch",
+                    "placeholder": "https://example.org/documents/123"
+                }
+            },
+            {
+                "id": "domain_keywords",
+                "type": "string",
+                "name": "Domain Keywords",
+                "data": {
+                    "description": "Comma-separated keywords for domain context",
+                    "placeholder": "finance, blockchain, treasury"
                 }
             }
         ]
@@ -309,13 +319,18 @@ def main():
     print("=" * 70 + "\n")
     
     # Define test input
-    input_data = {"text": "The impact of AI on the job market"}
-    
-    print(f"Input: {input_data['text']}")
+    input_data = {
+        "source_url": "https://be.gov.tools/proposal/get/d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0%230?drepId=",
+        "domain_keywords": "finance, treasury, blockchain"
+    }
+
+    print(f"Source URL: {input_data['source_url']}")
+    print(f"Domain Keywords: {input_data['domain_keywords']}")
+
     print("\nProcessing with CrewAI agents...\n")
     
     # Initialize and run the crew
-    crew = ResearchCrew(verbose=True)
+    crew = DocLensCrew(verbose=True)
     result = crew.crew.kickoff(inputs=input_data)
     
     # Display the result

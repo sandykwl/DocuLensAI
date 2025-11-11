@@ -1,238 +1,215 @@
-This **CrewAI Masumi Starter Kit** lets you quickly deploy your own CrewAI agents and integrate them with Masumi's decentralized payment solution.
+# 🧠 DocuLensAI — Intelligent Document Insight through Agentic Collaboration
 
-**Key benefits:**
-
-- Simple setup: Just clone, configure, and deploy.
-- Integrated with Masumi for automated decentralized payments on Cardano.
-- Production-ready API built with FastAPI.
+**DocuLensAI** is an **agentic document intelligence system** built using **CrewAI** and integrated with **Masumi’s decentralized payment network** on **Cardano**.
+It allows users to submit any document through a URL and receive AI-powered insights — from extraction to linguistic, structural and risk analysis — executed via coordinated autonomous agents.
 
 ---
 
-Follow these steps to quickly get your CrewAI agents live and monetized on Masumi.
+## 🚀 Key Features
 
-### **1. Clone Repository**
+* **AI-powered document diagnostics:**
+  Automatically extracts, reads, and analyzes governance proposals or technical documents from URLs.
+* **Agentic collaboration pipeline:**
+  Multi-agent CrewAI system combining text ingestion, linguistic analysis, and risk evaluation.
+* **Tool-assisted precision:**
+  Each agent is paired with specialized tools — `FetchDocumentTool` for reliable text ingestion, and `LinguisticMetricTool` for detailed language and structure analysis.
+* **Decentralized payments via Masumi:**
+  Fully integrated with Masumi Payment Service for blockchain-based monetization.
+* **FastAPI production server:**
+  Exposes MIP-003-compliant endpoints for easy integration and testing.
 
-Prerequisites:
+---
 
-- Python >= 3.10 and < 3.13
-- uv (Python package manager)
+## Demo
 
-Clone the repository and navigate into the directory:
+[![Watch the video](https://img.youtube.com/vi/8iRorpk9Ilw/0.jpg)](https://www.youtube.com/watch?v=8iRorpk9Ilw)
+
+---
+
+## 🧩 Crew Overview
+
+| Agent              | Role                         | Tools Used             | Description                                                                                                 |
+| ------------------ | ---------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Reader Agent**   | Document Reader              | `FetchDocumentTool`    | Fetches raw text from proposal or document URLs and outputs `{document_text, domain_keywords}`.             |
+| **Risk DNA Agent** | Risk & Originality Evaluator | `LinguisticMetricTool` | Evaluates originality, linguistic metrics, and structural risk indicators using contextual domain keywords. |
+| **DocLens Crew**   | Coordinator                  | —                      | Orchestrates agents and exposes the API interface.                                                          |
+
+---
+
+## ⚙️ Getting Started
+
+### 1️⃣ Clone Repository
+
+**Prerequisites:**
+
+* Python ≥ 3.10 and < 3.13
+* [uv](https://docs.astral.sh/uv/) (Python package manager)
 
 ```bash
 git clone https://github.com/masumi-network/crewai-masumi-quickstart-template.git
 cd crewai-masumi-quickstart-template
-```
-
-Install dependencies:
-
-<Tabs items={[ 'macOS/Linux', 'Windows']}>
-<Tab>
-```bash
-uv venv --python 3.13  
-source .venv/bin/activate  
+uv venv --python 3.13
+source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
-</Tab>
-<Tab>
+
+*On Windows:*
+
 ```bash
-uv venv --python 3.13  
-.\.venv\Scripts\activate  
+uv venv --python 3.13
+.\.venv\Scripts\activate
 uv pip install -r requirements.txt
 ```
-</Tab>
-</Tabs>
 
 ---
 
-### **2. Configure Your Environment Variables**
+### 2️⃣ Configure Environment Variables
 
-Copy `.env.example` to `.env` and fill with your own data:
+Copy `.env.example` to `.env` and fill with your configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-Example `.env` configuration:
+Example:
 
-```ini
-# Payment Service
+```bash
 PAYMENT_SERVICE_URL=http://localhost:3001/api/v1
 PAYMENT_API_KEY=your_payment_key
-
-# Agent Configuration
 AGENT_IDENTIFIER=your_agent_identifier_from_registration
+SELLER_VKEY=your_selling_wallet_vkey
 PAYMENT_AMOUNT=10000000
 PAYMENT_UNIT=lovelace
-SELLER_VKEY=your_selling_wallet_vkey
-
-# OpenAI API
 OPENAI_API_KEY=your_openai_api_key
-
-# Network
-NETWORK=Preprod # or Mainnet
+NETWORK=Preprod
 ```
-
-For more detailed explanations, go to [Environment Variables](https://docs.masumi.network/documentation/technical-documentation/environment-variables#agent). 
-#### Get your OpenAI API key from the [OpenAI Developer Portal](https://platform.openai.com/api-keys).
 
 ---
 
-### **3. Define and Test Your CrewAI Agents**
+### 3️⃣ Run Locally (Standalone)
 
-Take a look at the `crew_definition.py` file. It has a basic `ResearchCrew`. Here you can define your agent functionality.
+Run the pipeline without payments:
 
-If you would like to develop your own agent crew, go to [CrewAI Docs Core Concepts](https://docs.crewai.com/en/concepts/agents) to learn more.
-
-If you're just starting and want to test everything from beginning to the end, you can do it without adding anything extra. 
-
-#### Running Your Agents:
-
-The application supports two modes:
-
-**1. Standalone mode** - Test your agents locally without API/payments:
 ```bash
 python main.py
 ```
-This runs your agents with a test input and displays the output directly in the terminal. Perfect for development and testing.
 
-**2. API mode** - Run with full Masumi payment integration:
-```bash
-python main.py api
-```
-This starts the FastAPI server with blockchain payment capabilities.
-
----
-
-###  **4. API Mode with Masumi Integration**
-
-When running in API mode (`python main.py api`), your agent is exposed via a FastAPI interface that follows the [MIP-003](https://github.com/masumi-network/masumi-improvement-proposals/blob/main/MIPs/MIP-003/MIP-003.md) standard for Masumi-compatible services.
-
-Access the interactive API documentation at:
-http://localhost:8000/docs
-
-#### Available Endpoints:
-
-- `GET /input_schema` - Returns input requirements for your agent
-- `GET /availability` - Checks if the server is operational
-- `POST /start_job` - Initiates a new AI task with payment request
-- `GET /status` - Checks job and payment status
-- `POST /provide_input` - Provides additional input (if needed)
-
-
-<Callout type="warn">
-Production Note: The template uses in-memory storage (jobs = {}) for simplicity. 
-In production, implement proper database storage (e.g., PostgreSQL) and consider 
-message queues for background processing.
-</Callout>
-
----
-
-### 💳 **5. Install the Masumi Payment Service**
-
-The Masumi Payment Service handles all blockchain payments for your agent.
-
-Follow the [Installation Guide](https://docs.masumi.network/documentation/get-started/installation) to set up the payment service.
-
-Once installed (locally), your payment service will be available at:
-
-- Admin Dashboard: http://localhost:3001/admin
-- API Documentation: http://localhost:3001/docs
-
-If you used some other way of deployment, for example with Rialway, you have to find the URL there. 
-
-Verify it's running:
-
-```bash
-curl -X GET 'http://localhost:3001/api/v1/health/' -H 'accept: application/json'
-```
-
-You should receive:
+You’ll see output similar to:
 
 ```
+======================================================================
+🚀 Running CrewAI agents locally (standalone mode)...
+======================================================================
+
+Source URL: https://be.gov.tools/proposal/get/d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0%230?drepId=
+Domain Keywords: finance, treasury, blockchain
+
+Processing with CrewAI agents...
+```
+
+### ✅ Example Crew Output
+
+```json
 {
-  "status": "success",
-  "data": {
-    "status": "ok"
+  "originality": {
+    "metrics": {
+      "lexical_diversity": 0.413,
+      "repetition_ratio": 0.142,
+      "normalized_length_score": 1.0,
+      "word_count": 1064
+    },
+    "domain_keywords": "finance, treasury, blockchain",
+    "authorship_likelihood": "Authorship cannot be determined from linguistic metrics alone. The document displays domain-specific governance formatting and references, consistent with human-authored policy proposals or templated drafting assistance. No definitive AI-signature indicators are detected by the provided metrics."
+  },
+  "risk_dna": {
+    "structure_assessment": {
+      "sections_present": [
+        "Executive Summary",
+        "Participating Members",
+        "Budget",
+        "Administrator",
+        "Funding Method",
+        "Withdrawal Logic",
+        "Oversight & Audit Mechanism",
+        "Expiration & Fund Recovery",
+        "Dispute Resolution",
+        "Reporting",
+        "Conclusion",
+        "References"
+      ],
+      "coherence": "High; the document follows a conventional governance action structure with clearly delineated roles, funding mechanics, and oversight."
+    },
+    "risk_indicators": {
+      "governance_overreach_risk": "Low to Medium",
+      "audit_and_transparency": "Moderate",
+      "design_complexity_and_security": "High",
+      "operational_risk": "Medium-High",
+      "funds_control_and_recovery": "Medium",
+      "conflict_of_interest_and_access": "Medium",
+      "deadlock_or_partial_approval_risk": "Medium"
+    },
+    "risk_mitigation_recommendations": [
+      "Institute an external independent security audit of the smart contract implementations and governance workflow before deployment.",
+      "Add multi-signature or threshold-based withdrawal authorization to reduce single-member risk.",
+      "Publish machine-readable records of all approvals, withdrawals, and budget actions to enhance auditability.",
+      "Define emergency pause and fail-safe procedures beyond internal CC oversight.",
+      "Introduce explicit sunset or performance metrics to reassess compensation terms over time."
+    ],
+    "overall_risk_rating": "Medium-High",
+    "notes": "The governance proposal is structurally coherent and transparent but entails significant on-chain financial controls and multi-party governance dynamics that demand external security validation and tighter control mechanisms to reduce operational and compliance risk."
   }
 }
 ```
 
 ---
 
-### **6. Top Up Your Wallet with Test ADA**
+## 🧱 Architecture Overview
 
-Get free Test ADA from Cardano Faucet:
+```
+┌────────────────────┐       ┌────────────────────┐       ┌────────────────────────┐       ┌────────────────────┐
+│  FetchDocumentTool │────▶ │   Reader Agent     │────▶ │  LinguisticMetricTool   │────▶ │  Risk DNA Agent     │
+└────────────────────┘       └────────────────────┘       └────────────────────────┘       └────────────────────┘
+         │                            │                              │                              │
+         ▼                            ▼                              ▼                              ▼
+   URL or Source Text        Extracted Text + Keywords     Originality + Structure Metrics     Risk & Governance Analysis
 
-- Copy your Selling Wallet address from the Masumi Dashboard.
-- Visit the [Cardano Faucet](https://docs.cardano.org/cardano-testnets/tools/faucet) or the [Masumi Dispencer](https://dispenser.masumi.network/).
-- Request Test ADA (Preprod network).
-
----
-
-### **7. Register Your Crew on Masumi**
-
-Before accepting payments, register your agent on the Masumi Network:
-
-1. Get your payment source information using [/payment-source/](https://docs.masumi.network/api-reference/payment-service/get-payment-source) endpoint, you will need `walletVkey` from the Selling Wallet (look for `"network": "PREPROD"`).
-
-
-2. Register your CrewAI agent via Masumi's API using the [POST /registry](https://docs.masumi.network/api-reference/payment-service/post-registry) endpoint.
-
-   It will take a few minutes for the agent to register, you can track it's state in the admin dashboard. 
-
-3. Once the agent is registered, get your agent identifier [`GET /registry/`](https://docs.masumi.network/api-reference/payment-service/get-registry).
-
-   Copy your `agentIdentifier` from the response, then update it in your `.env` file along with your `PAYMENT_API_KEY`.
-
-   Create a PAYMENT_API key using [`GET /api-key/`](https://docs.masumi.network/api-reference/registry-service/get-api-key).
-
----
-
-### **8. Test Your Monetized Agent**
-
-Your agent is now ready to accept payments! Test the complete workflow:
-
-Start a paid job:
-
-```bash
-curl -X POST "http://localhost:8000/start_job" \
--H "Content-Type: application/json" \
--d '{
-    "identifier_from_purchaser": "<put HEX of even character>",
-    "input_data": {"text": "artificial intelligence trends"}
-}'
+                                   │
+                                   ▼
+                            DocuLens Crew Coordinator
+                                   │
+                                   ▼
+                              FastAPI + Masumi
 ```
 
-This returns a `job_id`.
+---
 
-Check job status:
+## 💡 Next Steps
 
-`curl -X GET "http://localhost:8000/status?job_id=your_job_id"`
-
-Make the payment (from another agent or client):
-
-```bash
-curl -X POST 'http://localhost:3001/api/v1/purchase' \
-  -H 'Content-Type: application/json' \
-  -H 'token: purchaser_api_key' \
-  -d '{
-    "agent_identifier": "your_agent_identifier"
-  }'
-```
-
-## Your agent will process the job and return results once payment is confirmed!
-
-
-
-
- **Next Step**: For production deployments, replace the in-memory store with a persistent database.
+* Persist job data using a database like PostgreSQL or Redis.
+* Extend analysis with semantic coherence, readability, and tone metrics.
+* Deploy to production with Masumi’s Mainnet integration.
 
 ---
 
-## **Useful Resources**
+## 🧱 Tech Stack
 
-- [CrewAI Documentation](https://docs.crewai.com)
-- [Masumi Documentation](https://docs.masumi.network)
-- [FastAPI](https://fastapi.tiangolo.com)
-- [Cardano Testnet Faucet](https://docs.cardano.org/cardano-testnets/tools/faucet)
+* **CrewAI** — Multi-agent orchestration
+* **FastAPI** — REST backend
+* **Masumi SDK** — Decentralized payments
+* **Cardano** — Blockchain settlement layer
+* **Python 3.11** — Runtime
+
+---
+
+## 📚 Useful Resources
+
+* [CrewAI Documentation](https://docs.crewai.com)
+* [Masumi Developer Docs](https://docs.masumi.network)
+* [FastAPI Docs](https://fastapi.tiangolo.com/)
+* [Cardano Testnet Faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/)
+
+---
+
+### 🏁 DocuLensAI
+
+> *Intelligent Document Insight through Agentic Collaboration.*

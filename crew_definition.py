@@ -1,46 +1,30 @@
 from crewai import Agent, Crew, Task
+
+from agents.reader_agent import reader_agent, reader_task
+from agents.risk_dna_agent import risk_dna_agent, risk_dna_task
 from logging_config import get_logger
 
-class ResearchCrew:
+class DocLensCrew:
+    """
+    A Crew pipeline that runs:
+      1. Reader Agent → Extracts and summarizes proposal data.
+      2. Risk DNA Agent → Analyzes originality and structure.
+    """
+
     def __init__(self, verbose=True, logger=None):
         self.verbose = verbose
         self.logger = logger or get_logger(__name__)
         self.crew = self.create_crew()
-        self.logger.info("ResearchCrew initialized")
+        self.logger.info("DocLensCrew initialized")
 
     def create_crew(self):
-        self.logger.info("Creating research crew with agents")
-        
-        researcher = Agent(
-            role='Research Analyst',
-            goal='Find and analyze key information',
-            backstory='Expert at extracting information',
-            verbose=self.verbose
-        )
-
-        writer = Agent(
-            role='Content Summarizer',
-            goal='Create clear summaries from research',
-            backstory='Skilled at transforming complex information',
-            verbose=self.verbose
-        )
-
-        self.logger.info("Created research and writer agents")
+        """Assemble the agents and tasks into a Crew."""
+        self.logger.info("Creating DocLens crew with agents")
 
         crew = Crew(
-            agents=[researcher, writer],
-            tasks=[
-                Task(
-                    description='Research: {text}',
-                    expected_output='Detailed research findings about the topic',
-                    agent=researcher
-                ),
-                Task(
-                    description='Write summary',
-                    expected_output='Clear and concise summary of the research findings',
-                    agent=writer
-                )
-            ]
+            agents=[reader_agent, risk_dna_agent],
+            tasks=[reader_task, risk_dna_task],
         )
+
         self.logger.info("Crew setup completed")
         return crew

@@ -1,0 +1,19 @@
+
+python -m pytest -s tests/test_fetch_document_tool.py
+python -m pytest -s tests/test_reader_agent.py
+python -m pytest -s tests/test_originality_check_tool.py
+python -m pytest -s tests/test_originality_agent.py
+python -m pytest -s tests/test_risk_dna_agent.py
+
+
+Masumi
+https://masumi-payment-service-production-7019.up.railway.app/api/v1/health/
+https://masumi-payment-service-production-7019.up.railway.app/admin
+https://masumi-payment-service-production-7019.up.railway.app/docs
+
+https://masumi-payment-service-production-1cef.up.railway.app/api/v1/health/
+https://masumi-payment-service-production-1cef.up.railway.app/admin
+https://masumi-payment-service-production-1cef.up.railway.app/docs
+
+
+
