@@ -1,0 +1,358 @@
+(.venv) PS C:\Workspace\PyCharmProjects\DocuLensAI> python .\main.py
+
+======================================================================
+🚀 Running CrewAI agents locally (standalone mode)...
+======================================================================
+
+Source URL: https://be.gov.tools/proposal/get/d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0%230?drepId=
+Domain Keywords: finance, treasury, blockchain
+
+Processing with CrewAI agents...
+
+╭──────────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Document Reader                                                                                                                                                          │
+│                                                                                                                                                                                  │
+│  Task: Input:                                                                                                                                                                    │
+│  - `source_url`: https://be.gov.tools/proposal/get/d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0%230?drepId=                                                  │
+│  - `domain_keywords`: finance, treasury, blockchain (just passed through)                                                                                                        │
+│                                                                                                                                                                                  │
+│  Output:                                                                                                                                                                         │
+│  Return a Python dict with:                                                                                                                                                      │
+│  - `document_text`: the raw extracted text                                                                                                                                       │
+│  - `domain_keywords`: same input string                                                                                                                                          │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── 🔧 Agent Tool Execution ─────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Document Reader                                                                                                                                                          │
+│                                                                                                                                                                                  │
+│  Thought: Action: Fetch Document Text from URL                                                                                                                                   │
+│                                                                                                                                                                                  │
+│  Using Tool: Fetch Document Text from URL                                                                                                                                        │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────── Tool Input ───────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  {                                                                                                                                                                               │
+│    "source_url": "https://be.gov.tools/proposal/get/d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0%230?drepId=",                                               │
+│    "domain_keywords": "finance, treasury, blockchain"                                                                                                                            │
+│  }                                                                                                                                                                               │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────────────── Tool Output ───────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  {'document_text':                                                                                                                                                               │
+│  '{"vote":null,"proposal":{"id":"71","txHash":"d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0","index":0,"type":"InfoAction","details":{"data":{"tag":"InfoAc  │
+│  tion"}},"expiryDate":"2025-11-20T21:44:51Z","expiryEpochNo":596,"createdDate":"2025-10-21T20:16:17Z","createdEpochNo":589,"url":"ipfs://QmZdZ387ZfcDwQ4YYSPAvWX42gX1w8nGPdhbwk  │
+│  7gxTtNBE","metadataHash":"a1eb9dd13a5ca3f009a261ddc07575190f98a42b94d180815fb5f2c0805b907c","protocolParams":null,"title":"Constitutional Committee Compensation Epochs         │
+│  581-653","abstract":"This governance action proposes a budget of 1,000,000 ada to provide compensation for Cardano Constitutional Committee members serving between epochs 581  │
+│  and 653.","motivation":"The current Constitutional Committee (CC) was seated on the Cardano blockchain at the beginning of epoch 581.\\n\\nAccording to Article I, Section 1,   │
+│  Tenet 4 of the Cardano Constitution, “Contributions by the Cardano Community on the Cardano Blockchain shall be recognized, recorded and assessed fairly through reward         │
+│  sharing with SPOs, potential compensation to DReps and CC members, and appropriate tokenomics.”\\n\\nFurthermore, according to Article VII, Section 8, “Cardano Blockchain      │
+│  ecosystem budgets shall provide for periodic administrative costs of the Constitutional Committee in such amounts as requested from time to time by the Constitutional          │
+│  Committee and as approved by ada owners.”","rationale":"### Executive Summary\\n\\nWhile Cardano offers an on-chain mechanism to compensate Stake Pool Operators (SPOs) for     │
+│  their work and Delegate Representatives (DReps) may be compensated by Ada holders (Article V, Section 5), the Constitutional Committee (CC) is “limited to voting on the        │
+│  constitutionality of governance actions” (Article VII, Section 1) regardless of personal preference or community sentiment. Carrying out this mandate requires careful review   │
+│  of governance actions, familiarity with the Constitution and governance mechanisms, and the c...                                                                                │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭───────────────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ──────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Document Reader                                                                                                                                                          │
+│                                                                                                                                                                                  │
+│  Final Answer:                                                                                                                                                                   │
+│  {                                                                                                                                                                               │
+│    'document_text':                                                                                                                                                              │
+│  '{"vote":null,"proposal":{"id":"71","txHash":"d2745225498d1c56c0f01be9971074a49144d625df0e73a86c51689624fbadb0","index":0,"type":"InfoAction","details":{"data":{"tag":"InfoAc  │
+│  tion"}},"expiryDate":"2025-11-20T21:44:51Z","expiryEpochNo":596,"createdDate":"2025-10-21T20:16:17Z","createdEpochNo":589,"url":"ipfs://QmZdZ387ZfcDwQ4YYSPAvWX42gX1w8nGPdhbwk  │
+│  7gxTtNBE","metadataHash":"a1eb9dd13a5ca3f009a261ddc07575190f98a42b94d180815fb5f2c0805b907c","protocolParams":null,"title":"Constitutional Committee Compensation Epochs         │
+│  581-653","abstract":"This governance action proposes a budget of 1,000,000 ada to provide compensation for Cardano Constitutional Committee members serving between epochs 581  │
+│  and 653.","motivation":"The current Constitutional Committee (CC) was seated on the Cardano blockchain at the beginning of epoch 581.\\n\\nAccording to Article I, Section 1,   │
+│  Tenet 4 of the Cardano Constitution, \u201cContributions by the Cardano Community on the Cardano Blockchain shall be recognized, recorded and assessed fairly through reward    │
+│  sharing with SPOs, potential compensation to DReps and CC members, and appropriate tokenomics.\u201d\\n\\nFurthermore, according to Article VII, Section 8, \u201cCardano       │
+│  Blockchain ecosystem budgets shall provide for periodic administrative costs of the Constitutional Committee in such amounts as requested from time to time by the              │
+│  Constitutional Committee and as approved by ada owners.\u201d","rationale":"### Executive Summary\\n\\nWhile Cardano offers an on-chain mechanism to compensate Stake Pool      │
+│  Operators (SPOs) for their work and Delegate Representatives (DReps) may be compensated by Ada holders (Article V, Section 5), the Constitutional Committee (CC) is             │
+│  \u201climited to voting on the constitutionality of governance actions\u201d (Article VII, Section 1) regardless of personal preference or community sentiment. Carrying out    │
+│  this mandate requires careful review of governance actions, familiarity with the Constitution and governance mechanisms, and the capacity to act impartially. CC members also   │
+│  face significant administrative costs in performing these duties, including research, deliberation, drafting, and participation in cross-time-zone meetings.\\n\\nWithout       │
+│  compensation from a neutral source, participation risks being limited to those able to subsidize these costs themselves or they may be subsidized by another institution. This  │
+│  could result in an \u201civory tower\u201d where only the wealthy or well-connected are able to serve. Establishing a reasonable budget for compensation from the Cardano       │
+│  Treasury ensures that service in the CC accessible to a broad range of qualified contributors and the institution itself remains distinct and independent.\\n\\n###             │
+│  Participating Members\\n\\nThis governance action was built from discussion between the seven currently serving members of the CC and will provide for the compensation of      │
+│  five of these members.\\n\\nThe members seeking compensation are:\\n\\nCardano Atlantic Council,                                                                                │
+│  script-hash-349e55f83e9af24813e6cb368df6a80d38951b2a334dfcdf26815558\\nTingvard, script-hash-1980dbf1ad624b0cb5410359b5ab14d008561994a6c2b6c53fabec00\\nEastern Cardano         │
+│  Council, script-hash-84aebcfd3e00d0f87af918fc4b5e00135f407e379893df7e7d392c6a\\nAce Alliance, script-hash-9752e4306e5ae864441d21064f791174c8b626199b8e7a45f9e03b45\\nCardano    │
+│  Japan Council, script-hash-9cc3f387623f45dae6a68b7096b0c2e403d8601a82dc40221ead41e2\\n\\nThe members not seeking compensation are:\\n\\nKtorZ,                                  │
+│  key-hash-dc0d6ef49590eb6880a50a00adde17596e6d76f7159572fa1ff85f2a\\nPhil_uplc, key-hash-13493790d9b03483a1e1e684ea4faf1ee48a58f402574e7f2246f4d4\\n\\n### Budget\\n\\nThe       │
+│  total amount of this budget shall be 1,000,000 Ada.\\n\\nEach of the five members seeking compensation shall be allowed to request up to 200,000 Ada as part of a single        │
+│  Treasury Withdrawal pursuant to the budget.\\n\\n### Administrator\\n\\nThe Administrator of this budget shall be a customized version of the open source Cardano               │
+│  Treasury/Vendor Smart Contract developed by Intersect & Sundae Labs. This Smart Contract will be deployed with the following conditions:\\n\\n#### Funding Method\\n\\n* A      │
+│  separate smart contract instance will be deployed for each CC member to ensure individualized oversight and accounting.\\n* These five smart contract instances will be         │
+│  concurrently funded subject to the passage of a Treasury Withdrawal Governance Action specifying the amount that each contract is due to receive.\\n* The Treasury Withdrawal   │
+│  Governance Action must be approved for submission by all members seeking compensation.\\n\\n#### Withdrawal Logic\\n\\n* The designated CC member may withdraw funds from the   │
+│  smart contract to an account in their custody once every six epochs.\\n* Each withdrawal equals the proportionate share of their service time in the 73-epoch funding term      │
+│  (i.e., pro-rata vesting based on actual service).\\n* Assets in the smart contract will only be able to be sent to the CC member account specified upon launch or the Cardano   │
+│  Treasury.\\n\\n#### Oversight & Audit Mechanism\\n\\n* Each CC member\u2019s smart contract will be overseen and auditable by the other four CC members.\\n* The other four CC  │
+│  members collectively hold the authority to pause further withdrawals if the designated member is no longer serving in their CC role.\\n* There will be no capability in the     │
+│  smart contract to change the recipient of funds. If the CC member wishes to receive compensation to another account for some reason (i.e. they lost access to their original    │
+│  account) they will need to make a new budget request to Ada holders.\\n\\n#### Expiration & Fund Recovery\\n\\n* Any funds remaining in the contract six epochs after the       │
+│  close of the 73-epoch funding term will be swept back into the Cardano Treasury, ensuring no stranded or unclaimed funds persist indefinitely.\\n\\n### Dispute                 │
+│  Resolution\\n\\nDispute resolution under this framework is handled directly by the smart contract through a vote of the four Constitutional Committee members overseeing each   │
+│  smart contract instance. If concerns arise regarding a designated member\u2019s eligibility or continued service, the remaining CC members may cast votes within the contract   │
+│  to determine whether withdrawals should be paused or allowed to continue. A defined majority threshold ensures that no single member can unilaterally block or reinstate        │
+│  payments, while still allowing the CC itself to resolve disputes internally without requiring an external institution.\\n\\n### Reporting\\n\\nCC members will be expected to   │
+│  provide a public address, controlled by the individual or entity receiving funds, at the time they submit a Treasury Withdrawal Governance Action. This ensures transparency    │
+│  and accountability, as Ada holders will be able to independently review and verify each withdrawal by tracing transactions from the smart contract to the designated CC         │
+│  member\u2019s custodied account using any blockchain explorer.\\n\\nIf it becomes necessary to freeze a contract and suspend withdrawals, that action and its justification     │
+│  must be publicly reported by the CC members voting to take such action. This will ensure that the community is aware of any exceptional circumstances.\\n\\n##                  │
+│  Conclusion\\n\\nIn conclusion, this framework provides a balanced approach to compensating Constitutional Committee members in a manner that is transparent, accountable, and   │
+│  aligned with Cardano\u2019s governance principles. By leveraging smart contracts to automate withdrawals, enforce vesting schedules, and allow peer oversight with the ability  │
+│  to pause payments, the system ensures both fairness to participants and protection of community resources. The requirement for public reporting of custodied addresses and      │
+│  withdrawal records further reinforces trust, while the automatic return of unclaimed funds to the Treasury safeguards against waste.\\n\\nMost importantly, this model allows   │
+│  the CC to operate as an independent institution, free from undue influence or reliance on outside funding sources, thereby strengthening its ability to exercise impartial      │
+│  judgment in overseeing constitutional governance.\\n\\n##                                                                                                                       │
+│  References","dRepYesVotes":712652894966505,"dRepNoVotes":1357251490898627,"dRepAbstainVotes":678129755780917,"poolYesVotes":10754387609795,"poolNoVotes":1047374625969,"poolAb  │
+│  stainVotes":0,"ccYesVotes":1,"ccNoVotes":0,"ccAbstainVotes":1,"prevGovActionIndex":null,"prevGovActionTxHash":null,"json":{"@context":{"@language":"en","CIP100":"https://gith  │
+│  ub.com/cardano-foundation/CIPs/blob/master/CIP-0100/README.md#","CIP108":"https://github.com/cardano-foundation/CIPs/blob/master/CIP-0108/README.md#","body":{"@context":{"abs  │
+│  tract":"CIP108:abstract","motivation":"CIP108:motivation","rationale":"CIP108:rationale","references":{"@container":"@set","@context":{"GovernanceMetadata":"CIP100:Governance  │
+│  MetadataReference","Other":"CIP100:OtherReference","label":"CIP100:reference-label","referenceHash":{"@context":{"hashAlgorithm":"CIP100:hashAlgorithm","hashDigest":"CIP108:h  │
+│  ashDigest"},"@id":"CIP108:referenceHash"},"uri":"CIP100:reference-uri"},"@id":"CIP108:references"},"title":"CIP108:title"},"@id":"CIP108:body"},"hashAlgorithm":"CIP100:hashAl  │
+│  gorithm"},"authors":[{"name":"Cardano Japan                                                                                                                                     │
+│  Council","witness":{"publicKey":"833ddc6eedc272e763c33b9e6ed91efea5f0a5161f05bf72c83326a9b11507de","signature":"275401dcb6f71c5f523ddac66425306821fbc1d27778012bff014f5d5e7cab  │
+│  030308b24ab80a3403eafbd6eec545c31552d49cf9f5de33d9de95eb788f90370d","witnessAlgorithm":"ed25519"}},{"name":"Tingvard","witness":{"publicKey":"79d847d860c0dbdb145db056097a6706  │
+│  c6d6a5b65a91c7db256472abfb031294","signature":"cba991bad3429eba3a379d8f50069bbd99a824c7bd198f3a15ffb5d8cdfaeab7f9ad92caf0337139f618c856f47935a54663fb965f44fc202b24027599d98c0  │
+│  2","witnessAlgorithm":"ed25519"}},{"name":"Eastern Cardano                                                                                                                      │
+│  Council","witness":{"publicKey":"a12e0d6516828fd47afc70e2eccdfa11a4f4c76cb5eca55bdc9349865a70e4fe","signature":"4050be9380c2f2b7eac280f6428b1c67890afe5db9e4fa6b5998c76a32dc91  │
+│  552e769175896284d76f611cdb49e543782df6753ab83ce2e59aeb9d2e17116d0d","witnessAlgorithm":"ed25519"}},{"name":"Ace                                                                 │
+│  Alliance","witness":{"publicKey":"4490e9caffd3861527b623a4d05f3ca4fb6ccf416c0167a1cab7aba133ee087c","signature":"a3ab47eb67595407121c1f073d52787fef016db36db6bdf2968b13586848a  │
+│  da376e6ba86577e7d2b58cd05f6238a8e58e59a5dd003d8abe9c39b6a36060d9e0e","witnessAlgorithm":"ed25519"}},{"name":"Cardano Atlantic                                                   │
+│  Council","witness":{"publicKey":"91333b40b6dbb4c47e5f30fde21b7d5b38dcad87d27c621b8b7fe61f108c1b0a","signature":"e02b1955d866ca86c44e62b123b8037b0a26207d9416baab3ab7fbf0d01156  │
+│  e9b3ba3deb70f246538bfacaf022f4e0f8ac6672d52fb2b52e2c479a785bcd740a","witnessAlgorithm":"ed25519"}}],"body":{"abstract":"This governance action proposes a budget of 1,000,000   │
+│  ada to provide compensation for Cardano Constitutional Committee members serving between epochs 581 and 653.","motivation":"The current Constitutional Committee (CC) was       │
+│  seated on the Cardano blockchain at the beginning of epoch 581.\\n\\nAccording to Article I, Section 1, Tenet 4 of the Cardano Constitution, \u201cContributions by the         │
+│  Cardano Community on the Cardano Blockchain shall be recognized, recorded and assessed fairly through reward sharing with SPOs, potential compensation to DReps and CC          │
+│  members, and appropriate tokenomics.\u201d\\n\\nFurthermore, according to Article VII, Section 8, \u201cCardano Blockchain ecosystem budgets shall provide for periodic         │
+│  administrative costs of the Constitutional Committee in such amounts as requested from time to time by the Constitutional Committee and as approved by ada                      │
+│  owners.\u201d","rationale":"### Executive Summary\\n\\nWhile Cardano offers an on-chain mechanism to compensate Stake Pool Operators (SPOs) for their work and Delegate         │
+│  Representatives (DReps) may be compensated by Ada holders (Article V, Section 5), the Constitutional Committee (CC) is \u201climited to voting on the constitutionality of      │
+│  governance actions\u201d (Article VII, Section 1) regardless of personal preference or community sentiment. Carrying out this mandate requires careful review of governance     │
+│  actions, familiarity with the Constitution and governance mechanisms, and the capacity to act impartially. CC members also face significant administrative costs in performing  │
+│  these duties, including research, deliberation, drafting, and participation in cross-time-zone meetings.\\n\\nWithout compensation from a neutral source, participation risks   │
+│  being limited to those able to subsidize these costs themselves or they may be subsidized by another institution. This could result in an \u201civory tower\u201d where only    │
+│  the wealthy or well-connected are able to serve. Establishing a reasonable budget for compensation from the Cardano Treasury ensures that service in the CC accessible to a     │
+│  broad range of qualified contributors and the institution itself remains distinct and independent.\\n\\n### Participating Members\\n\\nThis governance action was built from    │
+│  discussion between the seven currently serving members of the CC and will provide for the compensation of five of these members.\\n\\nThe members seeking compensation          │
+│  are:\\n\\nCardano Atlantic Council, script-hash-349e55f83e9af24813e6cb368df6a80d38951b2a334dfcdf26815558\\nTingvard,                                                            │
+│  script-hash-1980dbf1ad624b0cb5410359b5ab14d008561994a6c2b6c53fabec00\\nEastern Cardano Council, script-hash-84aebcfd3e00d0f87af918fc4b5e00135f407e379893df7e7d392c6a\\nAce      │
+│  Alliance, script-hash-9752e4306e5ae864441d21064f791174c8b626199b8e7a45f9e03b45\\nCardano Japan Council,                                                                         │
+│  script-hash-9cc3f387623f45dae6a68b7096b0c2e403d8601a82dc40221ead41e2\\n\\nThe members not seeking compensation are:\\n\\nKtorZ,                                                 │
+│  key-hash-dc0d6ef49590eb6880a50a00adde17596e6d76f7159572fa1ff85f2a\\nPhil_uplc, key-hash-13493790d9b03483a1e1e684ea4faf1ee48a58f402574e7f2246f4d4\\n\\n### Budget\\n\\nThe       │
+│  total amount of this budget shall be 1,000,000 Ada.\\n\\nEach of the five members seeking compensation shall be allowed to request up to 200,000 Ada as part of a single        │
+│  Treasury Withdrawal pursuant to the budget.\\n\\n### Administrator\\n\\nThe Administrator of this budget shall be a customized version of the open source Cardano               │
+│  Treasury/Vendor Smart Contract developed by Intersect & Sundae Labs. This Smart Contract will be deployed with the following conditions:\\n\\n#### Funding Method\\n\\n* A      │
+│  separate smart contract instance will be deployed for each CC member to ensure individualized oversight and accounting.\\n* These five smart contract instances will be         │
+│  concurrently funded subject to the passage of a Treasury Withdrawal Governance Action specifying the amount that each contract is due to receive.\\n* The Treasury Withdrawal   │
+│  Governance Action must be approved for submission by all members seeking compensation.\\n\\n#### Withdrawal Logic\\n\\n* The designated CC member may withdraw funds from the   │
+│  smart contract to an account in their custody once every six epochs.\\n* Each withdrawal equals the proportionate share of their service time in the 73-epoch funding term      │
+│  (i.e., pro-rata vesting based on actual service).\\n* Assets in the smart contract will only be able to be sent to the CC member account specified upon launch or the Cardano   │
+│  Treasury.\\n\\n#### Oversight & Audit Mechanism\\n\\n* Each CC member\u2019s smart contract will be overseen and auditable by the other four CC members.\\n* The other four CC  │
+│  members collectively hold the authority to pause further withdrawals if the designated member is no longer serving in their CC role.\\n* There will be no capability in the     │
+│  smart contract to change the recipient of funds. If the CC member wishes to receive compensation to another account for some reason (i.e. they lost access to their original    │
+│  account) they will need to make a new budget request to Ada holders.\\n\\n#### Expiration & Fund Recovery\\n\\n* Any funds remaining in the contract six epochs after the       │
+│  close of the 73-epoch funding term will be swept back into the Cardano Treasury, ensuring no stranded or unclaimed funds persist indefinitely.\\n\\n### Dispute                 │
+│  Resolution\\n\\nDispute resolution under this framework is handled directly by the smart contract through a vote of the four Constitutional Committee members overseeing each   │
+│  smart contract instance. If concerns arise regarding a designated member\u2019s eligibility or continued service, the remaining CC members may cast votes within the contract   │
+│  to determine whether withdrawals should be paused or allowed to continue. A defined majority threshold ensures that no single member can unilaterally block or reinstate        │
+│  payments, while still allowing the CC itself to resolve disputes internally without requiring an external institution.\\n\\n### Reporting\\n\\nCC members will be expected to   │
+│  provide a public address, controlled by the individual or entity receiving funds, at the time they submit a Treasury Withdrawal Governance Action. This ensures transparency    │
+│  and accountability, as Ada holders will be able to independently review and verify each withdrawal by tracing transactions from the smart contract to the designated CC         │
+│  member\u2019s custodied account using any blockchain explorer.\\n\\nIf it becomes necessary to freeze a contract and suspend withdrawals, that action and its justification     │
+│  must be publicly reported by the CC members voting to take such action. This will ensure that the community is aware of any exceptional circumstances.\\n\\n##                  │
+│  Conclusion\\n\\nIn conclusion, this framework provides a balanced approach to compensating Constitutional Committee members in a manner that is transparent, accountable, and   │
+│  aligned with Cardano\u2019s governance principles. By leveraging smart contracts to automate withdrawals, enforce vesting schedules, and allow peer oversight with the ability  │
+│  to pause payments, the system ensures both fairness to participants and protection of community resources. The requirement for public reporting of custodied addresses and      │
+│  withdrawal records further reinforces trust, while the automatic return of unclaimed funds to the Treasury safeguards against waste.\\n\\nMost importantly, this model allows   │
+│  the CC to operate as an independent institution, free from undue influence or reliance on outside funding sources, thereby strengthening its ability to exercise impartial      │
+│  judgment in overseeing constitutional governance.\\n\\n## References","references":[{"@type":"Other","label":"Cardano                                                           │
+│  Constitution","uri":"ipfs://bafkreiazhhawe7sjwuthcfgl3mmv2swec7sukvclu3oli7qdyz4uhhuvmy"},{"@type":"Other","label":"CC Governance                                               │
+│  Action","uri":"ipfs://bafkreicw6kinbtfwxygoj4jf7khextfq6a3yirlhkldhd7zizdq4xu2ghm"},{"@type":"Other","label":"Cardano Treasury/Vendor Smart Contract                            │
+│  Code","uri":"https://github.com/SundaeSwap-finance/treasury-contracts"}],"title":"Constitutional Committee Compensation Epochs                                                  │
+│  581-653"},"hashAlgorithm":"blake2b-256"},"authors":[{"name":"Cardano Japan                                                                                                      │
+│  Council","publicKey":"833ddc6eedc272e763c33b9e6ed91efea5f0a5161f05bf72c83326a9b11507de","signature":"275401dcb6f71c5f523ddac66425306821fbc1d27778012bff014f5d5e7cab030308b24ab  │
+│  80a3403eafbd6eec545c31552d49cf9f5de33d9de95eb788f90370d","witnessAlgorithm":"ed25519"},{"name":"Tingvard","publicKey":"79d847d860c0dbdb145db056097a6706c6d6a5b65a91c7db256472a  │
+│  bfb031294","signature":"cba991bad3429eba3a379d8f50069bbd99a824c7bd198f3a15ffb5d8cdfaeab7f9ad92caf0337139f618c856f47935a54663fb965f44fc202b24027599d98c02","witnessAlgorithm":"  │
+│  ed25519"},{"name":"Eastern Cardano                                                                                                                                              │
+│  Council","publicKey":"a12e0d6516828fd47afc70e2eccdfa11a4f4c76cb5eca55bdc9349865a70e4fe","signature":"4050be9380c2f2b7eac280f6428b1c67890afe5db9e4fa6b5998c76a32dc91552e7691758  │
+│  96284d76f611cdb49e543782df6753ab83ce2e59aeb9d2e17116d0d","witnessAlgorithm":"ed25519"},{"name":"Ace                                                                             │
+│  Alliance","publicKey":"4490e9caffd3861527b623a4d05f3ca4fb6ccf416c0167a1cab7aba133ee087c","signature":"a3ab47eb67595407121c1f073d52787fef016db36db6bdf2968b13586848ada376e6ba86  │
+│  577e7d2b58cd05f6238a8e58e59a5dd003d8abe9c39b6a36060d9e0e","witnessAlgorithm":"ed25519"},{"name":"Cardano Atlantic                                                               │
+│  Council","publicKey":"91333b40b6dbb4c47e5f30fde21b7d5b38dcad87d27c621b8b7fe61f108c1b0a","signature":"e02b1955d866ca86c44e62b123b8037b0a26207d9416baab3ab7fbf0d01156e9b3ba3deb7  │
+│  0f246538bfacaf022f4e0f8ac6672d52fb2b52e2c479a785bcd740a","witnessAlgorithm":"ed25519"}}]}',                                                                                     │
+│    'domain_keywords': 'finance, treasury, blockchain'                                                                                                                            │
+│  }                                                                                                                                                                               │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Risk DNA & Originality Evaluator                                                                                                                                         │
+│                                                                                                                                                                                  │
+│  Task: Analyze both originality and governance structure risks for a given document.                                                                                             │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── 🔧 Agent Tool Execution ─────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Risk DNA & Originality Evaluator                                                                                                                                         │
+│                                                                                                                                                                                  │
+│  Thought: Thought: I will run the Linguistic Metric Tool on the provided document to obtain baseline linguistic metrics for originality and reuse indicators.                    │
+│                                                                                                                                                                                  │
+│  Using Tool: Linguistic Metric Tool                                                                                                                                              │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────────────────────────────────────────────── Tool Input ───────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  {                                                                                                                                                                               │
+│    "document_text": "FULL_DOCUMENT_TEXT",                                                                                                                                        │
+│    "domain_keywords": "finance, treasury, blockchain"                                                                                                                            │
+│  }                                                                                                                                                                               │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────────────── Tool Output ───────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  {'composite_score': 0.73, 'metrics': {'lexical_diversity': 1.0, 'repetition_ratio': 0.0, 'length_score': 0.1, 'word_count': 1}, 'domain_keywords': 'finance, treasury,          │
+│  blockchain', 'reasoning': 'Diversity=1.00, Repetition=0.00, LengthScore=0.10, Words=1', 'status': 'ok'}                                                                         │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭───────────────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ──────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  Agent: Risk DNA & Originality Evaluator                                                                                                                                         │
+│                                                                                                                                                                                  │
+│  Final Answer:                                                                                                                                                                   │
+│  {                                                                                                                                                                               │
+│    "originality": {                                                                                                                                                              │
+│      "authorship_likelihood": "Multi-authored governance action with explicit signatories; deliberate domain-specific content; signatures included; evidence of governance       │
+│  process; not obviously AI-generated.",                                                                                                                                          │
+│      "evidence": [                                                                                                                                                               │
+│        "Five council names listed as authors",                                                                                                                                   │
+│        "Public keys and signatures present in authors block",                                                                                                                    │
+│        "References to Cardano Constitution and CIP108 in body",                                                                                                                  │
+│        "IPFS hashes and on-chain metadata present",                                                                                                                              │
+│        "Structured governance format with sections (Executive Summary, Budget, Administrator, etc.) typical of formal governance proposals"                                      │
+│      ],                                                                                                                                                                          │
+│      "template_detection": "High; structure aligns with CIP108 governance action templates; however content includes novel budget numbers and member list, suggesting a          │
+│  collaborative CC product rather than generic AI-generated text."                                                                                                                │
+│    },                                                                                                                                                                            │
+│    "risk_dna": {                                                                                                                                                                 │
+│      "governance_structure_risks": [                                                                                                                                             │
+│        "Approval mechanism requiring consent of all five compensation-seeking CC members increases risk of deadlock or strategic manipulation if any member with influence       │
+│  withholds approval.",                                                                                                                                                           │
+│        "Per-member smart contract accounts create multiple points of failure; misconfiguration could lead to uneven vesting or misallocation if one contract misbehaves.",       │
+│        "Six-epoch withdrawal cadence and 73-epoch term create long-term commitment; changes in CC membership or priorities over time could undermine ongoing compensation.",     │
+│        "Dispute resolution relies on internal votes within contract; potential for manipulation if internal voting rights or access are compromised."                            │
+│      ],                                                                                                                                                                          │
+│      "financial_risks": [                                                                                                                                                        │
+│        "Total budget of 1,000,000 ADA exposes treasury to price volatility; value fluctuation could affect opportunity costs.",                                                  │
+│        "Unclaimed funds are swept back after contract expiry, but poor absorber risk if vesting or accounting errors occur.",                                                    │
+│        "Independent contract governance may obscure full treasury accounting; requires robust audit trails."                                                                     │
+│      ],                                                                                                                                                                          │
+│      "operational_risks": [                                                                                                                                                      │
+│        "Too much reliance on a customized treasury contract codebase from Intersect & Sundae Labs; potential bugs or vulnerabilities in code.",                                  │
+│        "Process requires on-chain actions by all five members; if one account is compromised or loses access, funding could be blocked.",                                        │
+│        "Public addresses and withdrawal records improve transparency but could be targeted by attackers seeking to exploit predictable withdrawal patterns."                     │
+│      ],                                                                                                                                                                          │
+│      "technical_risks": [                                                                                                                                                        │
+│        "Smart contract logic must correctly implement pro-rata vesting; any miscalculation could result in over/under payment.",                                                 │
+│        "Pause mechanism requires four CC members to act; risk of coordination failure or governance delays.",                                                                    │
+│        "Inter-contract communications must be secure; risk of cross-contract interaction bugs."                                                                                  │
+│      ],                                                                                                                                                                          │
+│      "compliance_risks": [                                                                                                                                                       │
+│        "On-chain compensation decisions may intersect with securities or corporate governance norms; ensure alignment with jurisdictional regulations.",                         │
+│        "Public disclosure of recipient addresses may raise privacy concerns for CC members."                                                                                     │
+│      ],                                                                                                                                                                          │
+│      "mitigations": [                                                                                                                                                            │
+│        "Introduce fallback mechanisms for emergency override with external auditor oversight to prevent deadlock.",                                                              │
+│        "Require multi-signature approvals for budget submissions; enforce thresholds beyond a single signatory.",                                                                │
+│        "Mandate independent security audit of the Cardano Treasury/Vendor Smart Contract code before deployment; periodic re-audits.",                                           │
+│        "Implement verifiable on-chain audit logs and external reporting dashboards for transparent accounting.",                                                                 │
+│        "Limit term length or include renewal conditions to reduce long-term commitment risk; establish contingency plans for CC membership changes."                             │
+│      ]                                                                                                                                                                           │
+│    }                                                                                                                                                                             │
+│  }                                                                                                                                                                               │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+======================================================================
+✅ Crew Output:
+======================================================================
+
+{
+  "originality": {
+    "authorship_likelihood": "Multi-authored governance action with explicit signatories; deliberate domain-specific content; signatures included; evidence of governance process; not obviously AI-generated.",
+    "evidence": [
+      "Five council names listed as authors",
+      "Public keys and signatures present in authors block",
+      "References to Cardano Constitution and CIP108 in body",
+      "IPFS hashes and on-chain metadata present",
+      "Structured governance format with sections (Executive Summary, Budget, Administrator, etc.) typical of formal governance proposals"
+    ],
+    "template_detection": "High; structure aligns with CIP108 governance action templates; however content includes novel budget numbers and member list, suggesting a collaborative CC product rather than generic AI-generated text."
+  },
+  "risk_dna": {
+    "governance_structure_risks": [
+      "Approval mechanism requiring consent of all five compensation-seeking CC members increases risk of deadlock or strategic manipulation if any member with influence withholds approval.",
+      "Per-member smart contract accounts create multiple points of failure; misconfiguration could lead to uneven vesting or misallocation if one contract misbehaves.",
+      "Six-epoch withdrawal cadence and 73-epoch term create long-term commitment; changes in CC membership or priorities over time could undermine ongoing compensation.",
+      "Dispute resolution relies on internal votes within contract; potential for manipulation if internal voting rights or access are compromised."
+    ],
+    "financial_risks": [
+      "Total budget of 1,000,000 ADA exposes treasury to price volatility; value fluctuation could affect opportunity costs.",
+      "Unclaimed funds are swept back after contract expiry, but poor absorber risk if vesting or accounting errors occur.",
+      "Independent contract governance may obscure full treasury accounting; requires robust audit trails."
+    ],
+    "operational_risks": [
+      "Too much reliance on a customized treasury contract codebase from Intersect & Sundae Labs; potential bugs or vulnerabilities in code.",
+      "Process requires on-chain actions by all five members; if one account is compromised or loses access, funding could be blocked.",
+      "Public addresses and withdrawal records improve transparency but could be targeted by attackers seeking to exploit predictable withdrawal patterns."
+    ],
+    "technical_risks": [
+      "Smart contract logic must correctly implement pro-rata vesting; any miscalculation could result in over/under payment.",
+      "Pause mechanism requires four CC members to act; risk of coordination failure or governance delays.",
+      "Inter-contract communications must be secure; risk of cross-contract interaction bugs."
+    ],
+    "compliance_risks": [
+      "On-chain compensation decisions may intersect with securities or corporate governance norms; ensure alignment with jurisdictional regulations.",
+      "Public disclosure of recipient addresses may raise privacy concerns for CC members."
+    ],
+    "mitigations": [
+      "Introduce fallback mechanisms for emergency override with external auditor oversight to prevent deadlock.",
+      "Require multi-signature approvals for budget submissions; enforce thresholds beyond a single signatory.",
+      "Mandate independent security audit of the Cardano Treasury/Vendor Smart Contract code before deployment; periodic re-audits.",
+      "Implement verifiable on-chain audit logs and external reporting dashboards for transparent accounting.",
+      "Limit term length or include renewal conditions to reduce long-term commitment risk; establish contingency plans for CC membership changes."
+    ]
+  }
+}
+
+======================================================================
+
+
+
+╭──────────────────────────────────────────────────────────────────────────────── Execution Traces ────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                  │
+│  🔍 Detailed execution traces are available!                                                                                                                                     │
+│                                                                                                                                                                                  │
+│  View insights including:                                                                                                                                                        │
+│    • Agent decision-making process                                                                                                                                               │
+│    • Task execution flow and timing                                                                                                                                              │
+│    • Tool usage details                                                                                                                                                          │
+│                                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Would you like to view your execution traces? [y/N] (20s timeout):
+(.venv) PS C:\Workspace\PyCharmProjects\DocuLensAI>

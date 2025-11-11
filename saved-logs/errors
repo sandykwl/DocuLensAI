@@ -1,0 +1,21 @@
+{
+  "message": "Error registering agent cmhu4z2yi000ins4n2rc3hvwa",
+  "attributes": {
+    "error": {
+      "code": "ERR_OSSL_BAD_DECRYPT",
+      "library": "Provider routines",
+      "reason": "bad decrypt"
+    },
+    "level": "error",
+    "service": "payment-service",
+    "timestamp": "2025-11-11T05:37:27.814Z"
+  },
+  "tags": {
+    "project": "b6d1b3c5-8563-4e4f-8f9d-0f048cf5feb3",
+    "environment": "9f45d74f-3ab2-4d83-bc55-00b7affce682",
+    "service": "204813d7-8e01-4eae-b50e-bd5963ffb7ce",
+    "deployment": "ca010905-68e4-4d6e-884b-aa6b88be8a0b",
+    "replica": "b02d2ccf-4925-4b7a-a311-20a920832838"
+  },
+  "timestamp": "2025-11-11T05:37:27.834128068Z"
+}

@@ -1,0 +1,17 @@
+{
+  "message": "Registering 1 agents for payment source cmhu5lmyy0003r035b3lkxr8l",
+  "attributes": {
+    "level": "info",
+    "service": "payment-service",
+    "timestamp": "2025-11-11T06:07:11.857Z"
+  },
+  "tags": {
+    "project": "348242eb-b842-4ba6-8fb4-c14705344fa0",
+    "environment": "b7138a94-d59b-4884-963b-981c30c0f619",
+    "service": "30ee03db-1528-4685-9943-895ed0a0f59f",
+    "deployment": "3a61ddf8-453b-49c7-ac39-f14d13efeb25",
+    "replica": "2e552071-a0a9-4e5f-ae18-f85d90a7692a"
+  },
+  "timestamp": "2025-11-11T06:07:12.039106864Z"
+}
+
