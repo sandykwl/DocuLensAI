@@ -5,7 +5,7 @@ It allows users to submit any document through a URL and receive AI-powered insi
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **AI-powered document diagnostics:**
   Automatically extracts, reads, and analyzes governance proposals or technical documents from URLs.
@@ -36,7 +36,7 @@ It allows users to submit any document through a URL and receive AI-powered insi
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### 1️⃣ Clone Repository
 
@@ -107,7 +107,7 @@ Domain Keywords: finance, treasury, blockchain
 Processing with CrewAI agents...
 ```
 
-### ✅ Example Crew Output
+### Example Crew Output
 
 ```json
 {
@@ -213,3 +213,4 @@ Processing with CrewAI agents...
 ### 🏁 DocuLensAI
 
 > *Intelligent Document Insight through Agentic Collaboration.*
+
