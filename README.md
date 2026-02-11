@@ -1,4 +1,4 @@
-# 🧠 DocuLensAI — Intelligent Document Insight through Agentic Collaboration
+# 🧠 DocuLensAI — Intelligent Document Insight through Agentic Collaboration on Cardano Blockchain
 
 **DocuLensAI** is an **agentic document intelligence system** built using **CrewAI** and integrated with **Masumi’s decentralized payment network** on **Cardano**.
 It allows users to submit any document through a URL and receive AI-powered insights — from extraction to linguistic, structural and risk analysis — executed via coordinated autonomous agents.
@@ -345,5 +345,6 @@ Processing with CrewAI agents...
 ### 🏁 DocuLensAI
 
 > *Intelligent Document Insight through Agentic Collaboration.*
+
 
 
